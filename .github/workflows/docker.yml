@@ -27,8 +27,16 @@ jobs:
         # Build's context is the set of files located in the specified PATH or URL
         context: .
         # Path to the Dockerfile
-        file: .Dockerfile
+        file: ./Dockerfile
         # Push is a shorthand for --output=type=registry
         push: true # optional, default is false
         # List of tags
         tags: ${{ secrets.DOCKER_HUB_USER }}/go_ci:${{ github.ref_name }} # optional
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: go-app # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: main

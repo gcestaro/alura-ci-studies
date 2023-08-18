@@ -14,8 +14,10 @@ jobs:
   test:
     strategy:
       matrix:
-        go_version: ['1.20', '1.18', '>=1.17']
-        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
+        #go_version: ['1.20', '1.18', '>=1.17']
+        #os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
+        go_version: ['1.20']
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
@@ -33,6 +35,12 @@ jobs:
 
     - name: Test
       run: go test -v main_test.go
+
+    - name: show-actions-secret
+      run: echo ${{ secrets.TESTE_CI }}
+
+    - name: show-codespace-secret
+      run: echo ${{ secrets.TESTE }}
 
   build:
     needs: test

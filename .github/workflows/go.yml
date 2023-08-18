@@ -12,6 +12,12 @@ on:
 jobs:
 
   test:
+    env:
+      HOST:localhost
+      PORT:5434
+      USER:root
+      PASSWORD:root
+      NAME:root
     strategy:
       matrix:
         #go_version: ['1.20', '1.18', '>=1.17']

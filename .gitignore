@@ -28,3 +28,6 @@ go.work
 
 #Mac
 .DS_Store
+
+# Postgres
+postgres-data/

@@ -37,9 +37,11 @@ jobs:
       run: go test -v main_test.go
 
     - name: show-actions-secret
-      run: echo ${{ secrets.TESTE_CI }}
+      # shows "***"
+      run: echo ${{ secrets.TESTE_CI }};echo ${{ secrets.teste_ci }}
 
     - name: show-codespace-secret
+      # shows ""
       run: echo ${{ secrets.TESTE }}
 
   build:

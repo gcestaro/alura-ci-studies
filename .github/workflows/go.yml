@@ -45,6 +45,8 @@ jobs:
 
   build:
     needs: test
+    matrix:
+      os: [ubuntu-latest, 'ubuntu-18.04']
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
